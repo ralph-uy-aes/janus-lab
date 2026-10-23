@@ -1,0 +1,42 @@
+site_name: Janus Lab
+site_description: A two-server home lab — stable services and a deliberately vulnerable security lab
+site_author: Ralph Uy
+repo_url: https://github.com/ralph-uy-aes/janus-lab
+repo_name: ralph-uy-aes/janus-lab
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - content.code.copy
+    - search.suggest
+
+nav:
+  - Home: index.md
+  - Plan: 00-plan.md
+  - Phase 0 — Decisions: phase-0-decisions.md
+  - Phases 1–7: status.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - tables
+  - toc:
+      permalink: true

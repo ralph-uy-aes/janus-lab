@@ -1,0 +1,7 @@
+flowchart TD
+    NET[Internet] --> GW["ISP modem/router"]
+    GW --> FW["Zone firewall"]
+    FW --> HOME["Home zone: admin PC"]
+    FW --> ATLAS["Atlas zone: server"]
+    FW --> SW["Lab switch"]
+    SW --> BREAK["Break zone: lab host"]
