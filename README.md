@@ -18,8 +18,8 @@ devices, or any management interface.** Every design decision follows from it.
 
 ## Status
 
-**Phase 0 — Decisions and setup.** Documentation foundation, charter, and
-tracking are being put in place before any hardware work begins.
+**Phase 0 — Decisions and setup.** ✅ Complete.
+**Phase 1 — Hardware bring-up.** 🚧 In Progress.
 
 **Where this is heading (week 20):** Atlas replaces my paid streaming and
 subscription services and is in real use, and I use Break at least twice a week
@@ -27,10 +27,11 @@ to feed security research, public write-ups, and hands-on practice.
 
 ## What is in this repo
 
-- Phase plans and checklists, redacted for publication
-- Write-ups: detections, isolation tests, failures, and what fixed them
-- Rebuild scripts for the lab
-- Decision records for anything that changed the plan
+- **`docs/`**: Phase write-ups, hardware inventory, and lessons learned.
+- **`runbooks/`**: Step-by-step guides (e.g., SMART checks, console resets).
+- **`configs/`**: Sanitized configuration files.
+- **`detections/`**: Wazuh and Splunk rules (coming in later phases).
+- **`scripts/`**: Ansible or Terraform for lab rebuilds (coming later).
 
 ## What is deliberately not here
 
@@ -54,8 +55,9 @@ VPN only — no port forwards, nothing exposed to the internet.
 
 ```mermaid
 flowchart TD
-    NET[Internet] --> GW["ISP modem/router"]
-    GW --> FW["Zone firewall<br/>one port per zone"]
+    NET[Internet] --> MODEM["ISP Modem"]
+    MODEM --> ROUTER["Lab Router<br/>gateway"]
+    ROUTER --> FW["Zone firewall<br/>one port per zone"]
     FW --> HOME["Home zone<br/>admin PC"]
     FW --> ATLAS["Atlas zone<br/>stable server"]
     FW --> SW["Lab switch"]
